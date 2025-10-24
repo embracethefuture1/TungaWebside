@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var overlay = document.getElementById('intro-overlay');
   var video = document.getElementById('intro-video');
   var logoOverlay = document.getElementById('logo-overlay');
-  if (!overlay || !video) return;
+
+  // If intro overlay/video are present, run intro logic. If not, continue — do not abort the whole DOMContentLoaded handler.
+  if (overlay && video) {
 
   // Query param overrides: ?intro=1 (force show), ?intro=0 (force skip)
   var params;
@@ -118,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
     clearTimeout(safetyTimer);
     hideOverlay();
   });
+  }
 
 
 
@@ -153,5 +156,60 @@ window.addEventListener('scroll', function() {
     matteBackground.style.opacity = matteOpacity;
   }
 });
+
+  // --- Contact page: Leaflet map + contact form handling ---
+  try {
+    // Map initialization (only if the `map` element exists)
+    var mapEl = document.getElementById('map');
+    if (mapEl && typeof L !== 'undefined') {
+      // Assumed coordinates: Bartın Üniversitesi (campus center)
+      // If you have exact coordinates for "Mimar Sinan dersliği", replace these values.
+      var campusLat = 41.6000530;
+      var campusLon = 32.3458559;
+      var map = L.map('map').setView([campusLat, campusLon], 16);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+      var marker = L.marker([campusLat, campusLon]).addTo(map)
+        .bindPopup('<strong>Bartın Üniversitesi</strong><br/>Kutlubey Kampüsü (yaklaşık konum)').openPopup();
+    }
+
+    // Simple client-side validation + helpful guidance for static Formspree placeholder
+    var contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function (e) {
+        // Use browser validation UI
+        if (!contactForm.checkValidity()) {
+          e.preventDefault();
+          e.stopPropagation();
+          contactForm.classList.add('was-validated');
+          return;
+        }
+
+        var action = contactForm.getAttribute('action') || '';
+        var feedback = document.getElementById('form-feedback');
+        // Detect placeholder action and show guidance rather than posting to an invalid endpoint
+        if (action.indexOf('{') !== -1 || action.indexOf('your-form-id') !== -1) {
+          e.preventDefault();
+          feedback.style.display = 'block';
+          feedback.className = 'text-danger';
+          feedback.textContent = 'Form henüz yapılandırılmadı. Formspree kullanmak için https://formspree.io/ adresinden bir form oluşturup form action değerini buradaki placeholder ile değiştirin.';
+          return;
+        }
+
+        // Show sending status and allow default submit to third-party service
+        if (feedback) {
+          feedback.style.display = 'block';
+          feedback.className = 'text-muted';
+          feedback.textContent = 'Gönderiliyor…';
+        }
+        // let the browser submit the form to the configured endpoint
+      });
+    }
+  } catch (err) {
+    // Swallow map/form errors so rest of site remains functional
+    console.warn('Contact page init error:', err);
+  }
 
 });

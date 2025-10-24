@@ -4,6 +4,45 @@ body {
     color: #212529;
 }
 
+/* Dark theme for specific pages (add class="dark-page" to body) */
+.dark-page {
+  background-color: #000000 !important;
+  color: #e6e6e6 !important;
+}
+
+.dark-page a, .dark-page .nav-link, .dark-page .social-bar a { color: #FFCC00 !important; }
+.dark-page .form-control { background: rgba(255,255,255,0.03); color: #eee; border: 1px solid rgba(255,255,255,0.08); }
+.dark-page .form-label { color: #e6e6e6; }
+.dark-page .btn-primary { background-color: #FF6600; border-color: #FF6600; }
+.dark-page .text-muted { color: #bbbbbb !important; }
+.dark-page #map { box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+
+/* Make main section headings white on dark pages and in about/contact sections */
+.dark-page h1, .dark-page h2, .dark-page h3, .dark-page .hero-text h1, .dark-page .feature-card h2 {
+  color: #ffffff !important;
+}
+
+/* Ensure nav links are white on dark pages */
+.dark-page .navbar-nav .nav-link {
+  color: #ffffff !important;
+}
+
+/* Make active nav link stand out slightly */
+.dark-page .navbar-nav .nav-link.active {
+  color: #FFCC00 !important;
+}
+
+/* Also ensure about page headings are white against its darker hero background */
+.about-section .feature-card h2,
+.hero-section .hero-text h1 {
+  color: #ffffff !important;
+}
+
+/* Small stagger helpers if needed */
+.stagger-delay-100 { transition-delay: 100ms; }
+.stagger-delay-200 { transition-delay: 200ms; }
+.stagger-delay-300 { transition-delay: 300ms; }
+
 
 @font-face {
     font-family: 'HANDC';
