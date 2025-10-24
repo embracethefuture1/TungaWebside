@@ -1,0 +1,209 @@
+/* Ana animasyon stilleri */
+.about-section {
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards;
+}
+
+.hero-text h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #00ff88, #00bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #rgba(255, 255, 255, 0.8);
+}
+
+/* Paralaks efekti için arka plan grid */
+.grid-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(500px) rotateX(45deg);
+    animation: gridMove 20s linear infinite;
+}
+
+/* İçerik bölümleri */
+.content-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px 0;
+    backdrop-filter: blur(10px);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.feature-card.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.feature-card h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00ff88;
+}
+
+.feature-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Teknoloji ikonları */
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.tech-icon {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.tech-icon.visible {
+    animation: iconFloat 3s ease infinite;
+}
+
+/* Sayaç bölümü */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 80px;
+}
+
+.stat-item {
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.stat-item.visible {
+    animation: scaleIn 0.6s ease forwards;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Animasyonlar */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gridMove {
+    from {
+        transform: perspective(500px) rotateX(45deg) translateY(0);
+    }
+    to {
+        transform: perspective(500px) rotateX(45deg) translateY(-50%);
+    }
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.8;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+    
+    .feature-card {
+        padding: 30px;
+    }
+    
+    .tech-icons {
+        flex-wrap: wrap;
+    }
+    
+    .tech-icon {
+        width: 60px;
+        height: 60px;
+    }
+}

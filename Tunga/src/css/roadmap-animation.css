@@ -1,0 +1,109 @@
+.roadmap-container {
+    padding: 50px 0;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.roadmap-line {
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    height: 0;
+    background: #00ff88;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+    animation: drawLine 3s forwards;
+}
+
+.roadmap-item {
+    width: 45%;
+    padding: 20px;
+    position: relative;
+    opacity: 0;
+    margin: 50px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(50px);
+}
+
+.roadmap-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #00ff88;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.roadmap-item:nth-child(odd) {
+    left: 0;
+    animation: slideInLeft 0.8s forwards;
+}
+
+.roadmap-item:nth-child(even) {
+    left: 55%;
+    animation: slideInRight 0.8s forwards;
+}
+
+.roadmap-item:nth-child(odd)::before {
+    right: -60px;
+}
+
+.roadmap-item:nth-child(even)::before {
+    left: -60px;
+}
+
+.roadmap-item h3 {
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+.roadmap-item p {
+    color: #fff;
+    line-height: 1.6;
+}
+
+@keyframes drawLine {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px) translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px) translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Her bir maddenin animasyon gecikmesi */
+.roadmap-item:nth-child(1) { animation-delay: 0.5s; }
+.roadmap-item:nth-child(2) { animation-delay: 1s; }
+.roadmap-item:nth-child(3) { animation-delay: 1.5s; }
+.roadmap-item:nth-child(4) { animation-delay: 2s; }
+.roadmap-item:nth-child(5) { animation-delay: 2.5s; }
+.roadmap-item:nth-child(6) { animation-delay: 3s; }

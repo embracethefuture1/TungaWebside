@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tunga Saye</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+  <style>
+    /* Video tam ekran olsun */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1; /* Yazılar videonun üstünde kalsın */
+      opacity: 0.6;
+    }
+
+    /* İçerikler videonun üstünde */
+    #main-content {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="content-hidden">
+  <!-- Intro Overlay -->
+  <div id="intro-overlay" data-intro-speed="1.25">
+    <video id="intro-video" autoplay muted playsinline>
+      <source src="../Video/TungaIntro.mp4" type="video/mp4">
+    </video>
+  </div>
+
+    <!-- Logo Overlay -->
+    <div id="logo-overlay" class="hide">
+      <div class="logo-anim">
+        <img src="../Photo/TungaLogo.png" alt="Tunga Logo">
+        <div class="logo-anim-text">TUNGA SAYE</div>
+      </div>
+    </div>
+
+  <!-- Navbar -->
+  <header>
+    <div class="social-bar d-flex justify-content-end align-items-center gap-3 px-3 py-1">
+      <a href="https://sosyal.teknofest.app/@baykartech" aria-label="N Social" class="text-decoration-none"><i class="fa-solid fa-n"></i></a>
+      <a href="https://www.instagram.com/tunga.saye/?hl=tr" aria-label="Instagram" class="text-decoration-none"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://x.com/tunga_uav_team" aria-label="Twitter" class="text-decoration-none"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.linkedin.com/company/tunga-uav-team/?originalSubdomain=tr" aria-label="LinkedIn" class="text-decoration-none"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.youtube.com/@tungaihateam8229" aria-label="YouTube" class="text-decoration-none"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-transparent">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white d-flex align-items-center" href="index.html">
+          <img src="../Photo/TungaLogo.png" alt="Tunga Logo" style="height: 44px; width: auto; margin-right: 10px;">
+          <span style="font-family: 'Montserrat', Arial, sans-serif; font-weight: 600; letter-spacing: 1px; font-size: 2rem;">
+            TUNGA SAYE
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="hakkımızda.html">Hakkımızda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="index.html">Ana Sayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="iletisim.html">İletişim</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="projelerimiz.html">Projelerimiz</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="../Video/BackgroundVideo.mp4" type="video/mp4">
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
+  <!-- Video Overlay -->
+  <div id="video-overlay"></div>
+  
+  <!-- Mat Turuncu Arka Plan -->
+  <div id="matte-background"></div>
+
+  <!-- İçerik -->
+  <div id="main-content" class="container mt-4" style=color:000000>
+    <section class="hero-bizkimiz">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <h1 class="title mb-2">Köklerden Göklere...</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Ekip Üyeleri Bölümü (Basit 4x2 kutu düzeni) -->
+  <section class="py-5" style="background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <h2 class="text-white mb-4">Ekip Üyeleri</h2>
+          <p class="text-white lead">TUNGA SAYE olarak teknoloji ve inovasyonda öncü olmaya devam ediyoruz.</p>
+        </div>
+      </div>
+
+      <!-- CSS - Cards - Flip 360 start -->
+      <div class="simple-box-grid">
+
+        <div class="wrapper">
+          <div class="flip-container">
+            <div class="flip flip-left">
+              <div class="front front-left">
+                <div class="front-label front-label-top">Sema</div>
+                <div class="front-label front-label-bottom">Takım Kaptanı</div>
+                <div class="circle"></div>
+              </div>
+              <div class="">
+                <img src="../Photo/Sema.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="wrapper">
+          <div class="flip-container">
+            <div class="flip flip-left">
+              <div class="front front-left">
+                <div class="front-label front-label-top">Yağmur</div>
+                <div class="front-label front-label-bottom">Mekanik Kaptanı</div>
+                <div class="circle"></div>
+              </div>
+              <div class="">
+                <img src="../Photo/Yagmur.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrapper">
+          <div class="flip-container">
+            <div class="flip flip-left">
+              <div class="front front-left">
+                <div class="front-label front-label-top">Rauf</div>
+                <div class="front-label front-label-bottom">Yazılım Kaptanı</div>
+                <div class="circle"></div>
+              </div>
+              <div class="">
+                <img src="../Photo/Rauf.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="wrapper">
+          <div class="flip-container">
+            <div class="flip flip-left">
+              <div class="front front-left">
+                <div class="front-label front-label-top">Oğuzhan</div>
+                <div class="front-label front-label-bottom">Kaptan Yardımcısı</div>
+                <div class="circle"></div>
+              </div>
+              <div class="">
+                <img src="../Photo/Oguzhan.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="wrapper">
+          <div class="flip-container">
+            <div class="flip flip-left">
+              <div class="front front-left">
+                <div class="front-label front-label-top">Zeyneb Şenol</div>
+                <div class="front-label front-label-bottom">Elektrik Kaptanı</div>
+                <div class="circle"></div>
+              </div>
+              <div class="">
+                <img src="../Photo/Zeyneb_Senol.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="wrapper">
+          <div class="flip-container">
+            <div class="flip flip-left">
+              <div class="front front-left">
+                <div class="front-label front-label-top">Büşra</div>
+                <div class="front-label front-label-bottom">Sosyal Medya Birimi + Arayüz Birimi</div>
+                <div class="circle"></div>
+              </div>
+              <div class="">
+                <img src="../Photo/Busra.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="wrapper">
+          <div class="flip-container">
+            <div class="flip flip-left">
+              <div class="front front-left">
+                <div class="front-label front-label-top">Sema</div>
+                <div class="front-label front-label-bottom">Üye</div>
+                <div class="circle"></div>
+              </div>
+              <div class="">
+                <img src="../Photo/Sema.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- CSS - Cards - Flip 360 end -->
+     
+  </section>
+
+  <!-- Projeler Bölümü -->
+  <section class="py-5" style="background: rgba(0,0,0,0.2); backdrop-filter: blur(3px);">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <h2 class="text-white mb-4">Projelerimiz</h2>
+          <p class="text-white">Gelişmiş teknolojilerle geleceği şekillendiren projelerimizi keşfedin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Haberler ve Duyurular -->
+<div class="container mt-5">
+  <section class="haberler-duyurular">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="fw-bold text-white">Haberler ve Duyurular</h2>
+        <hr class="w-25 mx-auto" style="border: 2px solid #fff;">
+      </div>
+    </div>
+    <div class="row g-4">
+      <!-- Haber Kartı 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-lg border-0">
+          <img src="../Photo/bartin_haber.jpg" class="card-img-top" alt="Bartın Haber">
+          <div class="card-body">
+            <h5 class="card-title">Bartın İHA Takımı Göz Doldurdu</h5>
+            <p class="card-text">Gençleri ilgili alanlara yönlendirmek ve deneyim kazanıp becerilerini geliştirmelerini sağlamak hedefiyle farklı kategorilerde düzenlenen Dünyanın en büyük Havacılık, Uzay ve Teknoloji Festivali TEKNOFEST 2025 yarışmalarında Bartın Üniversitesi (BARÜ) öğrencileri önemli başarılara imza atıyor.</p>
+            <a href="https://www.bartinhergungazetesi.com/baru-nun-iha-takimi-goz-doldurdu/25115/" class="btn btn-primary btn-sm">Devamını Oku</a>
+          </div>
+        </div>
+      </div>
+      <!-- Haber Kartı 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-lg border-0">
+          <img src="../Photo/tv100_haber.png" class="card-img-top" alt="Teknofest Heyecanı Bartın Üniversitesi">
+          <div class="card-body">
+            <h5 class="card-title">TEKNOFEST Heyecanı Bartın Üniversitesi</h5>
+            <p class="card-text">TEKNOFEST Yarışmalarına katılan ve bu süreçte finallere kalarak başarılar elde eden Uzay ve Havacılık Kulübü Tunga Saye Takımı ve Camel Roket Takımı ile birlikteyiz..</p>
+            <a href="https://www.youtube.com/watch?v=B8OzA7fAmm0" class="btn btn-primary btn-sm mt-5">Devamını Oku</a>
+          </div>
+        </div>
+      </div>
+      <!-- Haber Kartı 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-lg border-0">
+          <img src="../Photo/imza_gazetesi_haber.jpg" class="card-img-top" alt="Imza Gazetesi Haber">
+          <div class="card-body">
+            <h5 class="card-title">Bartın Üniversitesi Öğrencileri TEKNOFEST'de Gururlandırdı!</h5>
+            <p class="card-text">Bartın Üniversitesi (BARÜ) öğrencilerinin yerli imkânlarla kampüsteki atölyelerinde ürettikleri sabit kanat İnsansız Hava Aracı (İHA) TEKNOFEST 2023’de gururlandırdı.</p>
+            <a href="https://www.imzagazetesi.com/bartin-universitesi-ogrencileri-teknofestde-gururlandirdi" class="btn btn-primary btn-sm mt-5">Devamını Oku</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+  <!-- Footer -->
+  <footer class="text-center mt-4 text-white position-relative">
+    <p>&copy; 2025 Oğuzhan Demirbas</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/scripts.js"></script>
+</body>
+</html>
